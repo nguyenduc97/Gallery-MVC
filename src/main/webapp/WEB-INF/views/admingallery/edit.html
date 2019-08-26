@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/admin/editgallery}" th:object="${editgallery}" method="post">
+    <input hidden th:field="*{id}">
+    <table>
+        <tr>
+            <th>Tên ảnh</th>
+            <th>Miêu tả</th>
+            <th>Ảnh</th>
+            <th>Category</th>
+        </tr>
+        <tr>
+            <td><input th:field="*{nameImage}"></td>
+            <td><input th:field="*{descImage}"></td>
+            <td><input type="file" th:field="*{image}"></td>
+            <td>
+                <select name="category">
+                    <option th:each="p : ${listCate}"
+                            th:value="${p.id}"
+                            th:text="${p.name}"
+                            th:selected="(${p.id} == *{category.id})"></option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" th:value="Update">
+</form>
+
+</body>
+</html>

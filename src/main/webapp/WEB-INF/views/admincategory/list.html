@@ -1,0 +1,23 @@
+<!DOCTYPE html>image-detail.htm
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Tên ảnh</th>
+        <th>Miêu tả</th>
+        <th>Ảnh</th>
+        <th>Ngày úp ảnh</th>
+    </tr>
+    <th:block th:each="listcategories: ${listcategory}">
+        <tr>
+            <td th:text="*{listcategories.id}"></td>
+        </tr>
+    </th:block>
+</table>
+
+</body>
+</html>

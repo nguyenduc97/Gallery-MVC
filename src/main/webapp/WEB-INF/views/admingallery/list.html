@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Tên ảnh</th>
+        <th>Miêu tả</th>
+        <th>Ảnh</th>
+        <th>Ngày úp ảnh</th>
+        <th>Category</th>
+        <th>Action</th>
+    </tr>
+    <th:block th:each="listgalleries: ${listgallery}">
+        <tr>
+            <td th:text="*{listgalleries.nameImage}"></td>
+            <td th:text="*{listgalleries.descImage}"></td>
+            <td><img th:src="@{'/upload/' + ${listgalleries.image}}" width="100px;"></td>
+            <td th:text="*{listgalleries.dateCreate}"></td>
+            <td th:text="*{listgalleries.category.name}"></td>
+            <td>Add/Delete</td>
+        </tr>
+    </th:block>
+</table>
+
+</body>
+</html>
